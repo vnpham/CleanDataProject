@@ -23,8 +23,9 @@ tidyDataFile  <- "TidyData.txt"
 if (!file.exists(dataDir)) {
    if (!file.exists(dataZip))
       download.file(dataLocation, dataZip)      # Download data file
-   else
-      unzip(dataZip)   # unzip data file
+   
+   
+   unzip(dataZip)   # unzip data file
 }
 
 # read activity label file
