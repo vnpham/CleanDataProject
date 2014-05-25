@@ -1,6 +1,6 @@
 ###########################################################
 ## Author: Vinh N. Pham
-## 
+## Coursera: Getting and Cleaning Data - Project
 ###########################################################
 
 # load package "plyr" if available
@@ -59,12 +59,14 @@ featureLabels <- featureLabels$V2
 
 # construct first version of tidy data which contain all the values from the train and test data
 # with meaningful feature labels
+# Note: tidyData1 satisfy steps 1,3, and 4
 tidyData1 <- cbind(subjectTotal, YTotal, XTotal)
 tidyLabels1 <- c("Subject", "Activity_Label", featureLabels)
 names(tidyData1)  <- tidyLabels1
 
 # construct second version of tidy data which contain only mean or std measurements
 # Note: I do not consider measurements similar to "angle(X,gravityMean)" mean or std measurements
+#       tidyData2 satisfy steps 1, 2, 3, and 4
 selectColumns <- c(1, 2, grep("mean|std", tidyLabels1))
 tidyData2 <- tidyData1[,selectColumns]
 
